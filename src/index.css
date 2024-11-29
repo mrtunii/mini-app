@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-900 text-white antialiased touch-manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .page-container {
+    @apply fixed inset-0 bg-gray-900 flex flex-col pb-24;
+  }
+
+  .content-container {
+    @apply flex-1 overflow-y-auto pb-20;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500;
+}
+
+/* Futuristic particle animation */
+.particle {
+  position: absolute;
+  opacity: 0.6;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: float-up var(--duration) ease-out forwards;
+}
+
+@keyframes float-up {
+  0% {
+    transform: translateY(100vh) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-20vh) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Navigation blur effect */
+.nav-blur {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Slide up animation */
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out forwards;
+}
+
+/* Floating animation */
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
